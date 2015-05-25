@@ -19,3 +19,20 @@ User.create!(email: "khanhkhanh@gmail.com",
               password_confirmation: password,
               admin: false)
 end
+
+5.times do |n|
+  name = "Category #{n+1}"
+  Category.create!(name: name)
+end
+
+categories = Category.all
+30.times do |n|
+  content = "Question #{n+1}"
+  categories.each {|category| category.questions.create! content: content}
+end
+
+questions  = Question.order(:created_at).all
+4.times do |n|
+  content = "Answer #{n+1}"
+  questions.each {|question| question.answers.create! content: content, correct: n == 1}
+end

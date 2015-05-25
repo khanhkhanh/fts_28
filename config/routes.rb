@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     root "users#index"
+    resources :questions
   end
 end
