@@ -1,7 +1,7 @@
 class Admin::QuestionsController < ApplicationController
   def index
     @questions = Question.paginate page: params[:page],
-    per_page: Settings.page_size
+                                   per_page: Settings.page_size
   end
 
   def new
