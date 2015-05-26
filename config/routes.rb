@@ -11,10 +11,15 @@ Rails.application.routes.draw do
     get "/edit" => "devise/registrations#edit"
   end
 
+  resources :exams, except: :destroy
+
+  resources :categories, only: [:index]
+
   namespace :admin do
     resources :users
     resources :categories
-    root "users#index"
+    resources :exams, except: [:edit, :update]
     resources :questions
+    root "exams#index"
   end
 end

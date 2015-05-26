@@ -1,1 +1,3 @@
 page_size: 20
+exam_page_size: 5
+limited_number_of_records: 10

@@ -1,5 +1,3 @@
-User.delete_all
-
 User.create!(email: "admin@gmail.com",
              password: "adminadmin",
              password_confirmation: "adminadmin",
@@ -10,29 +8,39 @@ User.create!(email: "khanhkhanh@gmail.com",
              password_confirmation: "khanhkhanh",
              admin: false)
 
-48.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@tms.org"
-  password = "password"
-  User.create!(email: email,
-              password: password,
-              password_confirmation: password,
-              admin: false)
+Category.create!(name: "MySQL")
+Category.create!(name: "Git")
+Category.create!(name: "Ruby on Rails")
+
+15.times do |n|
+  content = "MySQL#{n+1}"
+  Category.find(1).questions.create! content: content
 end
 
-5.times do |n|
-  name = "Category #{n+1}"
-  Category.create!(name: name)
+15.times do |n|
+  content = "Git#{n+1}"
+  Category.find(2).questions.create! content: content
 end
 
-categories = Category.all
-30.times do |n|
-  content = "Question #{n+1}"
-  categories.each {|category| category.questions.create! content: content}
+15.times do |n|
+  content = "RubyOnRails#{n+1}"
+  Category.find(3).questions.create! content: content
 end
 
-questions  = Question.order(:created_at).all
-4.times do |n|
-  content = "Answer #{n+1}"
-  questions.each {|question| question.answers.create! content: content, correct: n == 1}
+_MySQLQuestions = Category.find(1).questions
+3.times do |n|
+  content = "MySQL'sAnswer#{n+1}"
+  _MySQLQuestions.each {|question| question.answers.create! content: content, correct: n == 1}
+end
+
+_GitQuestions = Category.find(2).questions
+3.times do |n|
+  content = "Git'sAnswer#{n+1}"
+  _GitQuestions.each {|question| question.answers.create! content: content, correct: n == 1}
+end
+
+_RubyOnRailsQuestions = Category.find(3).questions
+3.times do |n|
+  content = "RubyOnRails'Answer#{n+1}"
+  _RubyOnRailsQuestions.each {|question| question.answers.create! content: content, correct: n == 1}
 end
