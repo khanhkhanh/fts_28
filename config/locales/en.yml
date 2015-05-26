@@ -30,10 +30,11 @@ en:
   confirm_notification: "Are you sure?"
   login_notice: "Please log in."
   super_notice: "Access denied."
-  error: "error"
+  error: "Error"
   submit: "Submit"
-
   forget_password: "Forgot your password?"
-
-  welcome_1: "Welcome to the Framgia Test App!"
-  welcome_2: "This is the home page for the Framgia Test App."
+  welcome_1: "Welcome To The Framgia Test App!"
+  welcome_2: "This Is The Home Page For The Framgia Test App."
+  correct: "Correct"
+  destroy: "Destroy"
+  questions: "Questions"

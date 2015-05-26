@@ -1,0 +1,12 @@
+<tr class="fields">
+  <td><%= f.label :content, t(:answer) %></td>
+  <td><%= f.text_field :content, class: "form-control" %></td>
+  <td class="col-md-1">
+    <%= f.check_box :correct %>
+    <%= f.label t(:correct) %>
+  </td>
+  <td class="col-md-1">
+    <%= f.check_box :_destroy %>
+    <%= f.label :_destroy, t(:remove) %>
+  </td>
+</tr>

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= question.id %></td>
+  <td><%= question.content %></td>
+  <td class="col-md-3">
+    <%= link_to t(:edit), edit_admin_question_path(question.id), class: "btn btn-primary col-md-5" %>
+    <%= link_to t(:delete), admin_question_path(question.id), method: :delete,
+                data: {confirm: t(:confirm)},
+                class: "btn btn-primary pull-right col-md-5" %>
+  </td>
+</tr>
