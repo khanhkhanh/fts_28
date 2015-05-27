@@ -38,3 +38,6 @@ en:
   correct: "Correct"
   destroy: "Destroy"
   questions: "Questions"
+
+  result_notification: "Result Notification"
+  exam_notification: "Exam Notification"
