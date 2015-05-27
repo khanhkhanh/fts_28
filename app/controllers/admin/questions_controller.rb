@@ -1,9 +1,10 @@
 class Admin::QuestionsController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!
 
   def index
-    @questions.paginate page: params[:page],
-                        per_page: Settings.page_size
+    @questions = @questions.paginate page: params[:page],
+                                     per_page: Settings.page_size
   end
 
   def new

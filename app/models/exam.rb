@@ -6,7 +6,7 @@ class Exam < ActiveRecord::Base
 
   before_save :make_random_questions, unless: :is_done?
 
-  accepts_nested_attributes_for :results, allow_destroy: true, 
+  accepts_nested_attributes_for :results, allow_destroy: true,
                                           reject_if: :all_blank
 
   scope :order_by_created_at, -> {order created_at: :DESC}
