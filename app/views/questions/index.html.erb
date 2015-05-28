@@ -1,8 +1,5 @@
 <div class="container">
   <div class="row">
-    <p>
-      <%= link_to t(:new), new_admin_question_path, class: "btn btn-primary" %>
-    </p>
     <div class="col-md-6 col-md-offset-3 paginate">
       <%= will_paginate @questions %>
     </div>
@@ -10,7 +7,6 @@
       <tr>
         <th><%= t :id %></th>
         <th><%= t :questions %></th>
-        <th><%= t :action %></th>
       </tr>
       <%= render @questions %>
     </table>

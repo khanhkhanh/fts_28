@@ -1,18 +1,13 @@
 User.delete_all
 
-User.create!(email: "admin@gmail.com",
-             password: "adminadmin",
-             password_confirmation: "adminadmin",
+User.create!(email: 'framgia.test.app.28@gmail.com',
+             password: '08011992',
+             password_confirmation: '08011992',
              admin: true)
 
-User.create!(email: "khanhkhanh@gmail.com",
-             password: "khanhkhanh",
-             password_confirmation: "khanhkhanh",
-             admin: false)
-
-48.times do |n|
+49.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@tms.org"
+  email = "example-#{n+1}@fts.28.com"
   password = "password"
   User.create!(email: email,
               password: password,
