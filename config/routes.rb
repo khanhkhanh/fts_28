@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :destroy]
   resources :questions, only: [:index]
+  resources :exams, except: :destroy
   resources :categories, only: [:index] do
     resources :exams, only: [:new, :create, :show]
   end
@@ -14,10 +15,6 @@ Rails.application.routes.draw do
     get "/signup" => "devise/registrations#new"
     get "/edit" => "devise/registrations#edit"
   end
-
-  resources :exams, except: :destroy
-
-  resources :categories, only: [:index]
 
   namespace :admin do
     resources :users
