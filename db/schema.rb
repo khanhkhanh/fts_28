@@ -31,11 +31,12 @@ ActiveRecord::Schema.define(version: 20150525071516) do
 
   create_table "exams", force: :cascade do |t|
     t.string   "name"
-    t.string   "mark"
+    t.integer  "mark"
+    t.boolean  "done",        default: false
     t.integer  "category_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "exams", ["category_id"], name: "index_exams_on_category_id"
@@ -51,12 +52,15 @@ ActiveRecord::Schema.define(version: 20150525071516) do
   add_index "questions", ["category_id"], name: "index_questions_on_category_id"
 
   create_table "results", force: :cascade do |t|
+    t.boolean  "correct",     default: false
     t.integer  "exam_id"
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "answer_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
+  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
   add_index "results", ["exam_id"], name: "index_results_on_exam_id"
   add_index "results", ["question_id"], name: "index_results_on_question_id"
 
