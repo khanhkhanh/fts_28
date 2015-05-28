@@ -1,2 +1,4 @@
 page_size: 20
 default_email: "Framgia Test App 28"
+exam_page_size: 5
+limited_number_of_records: 10
