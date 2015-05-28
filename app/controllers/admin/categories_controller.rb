@@ -1,7 +1,9 @@
 class Admin::CategoriesController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @categories = Category.paginate page: params[:page],
-    per_page: Settings.page_size
+    @categories.paginate page: params[:page],
+                         per_page: Settings.page_size
   end
 
   def new

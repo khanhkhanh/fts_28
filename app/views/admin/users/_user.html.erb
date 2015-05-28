@@ -1,6 +1,9 @@
 <tr id="user_<%= user.id %>">
   <td><%= user.email %></td>
   <td>
-    <%= link_to t(:delete_link), admin_user_path(user), method: :delete, remote: true, data: {confirm: t(:confirm_notification)} %>
+    <% unless user.admin? %>
+      <%= link_to t(:delete_link), admin_user_path(user), method: :delete,
+        remote: true, data: {confirm: t(:confirm_notification)} %>
+    <% end %>
   </td>
 </tr>

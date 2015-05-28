@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users, except: [:index, :destroy]
+  resources :questions, only: [:index]
+  resources :categories, only: [:index] do
+    resources :exams, only: [:new, :create, :show]
+  end
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"

@@ -1,7 +1,9 @@
 class Admin::QuestionsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @questions = Question.paginate page: params[:page],
-                                   per_page: Settings.page_size
+    @questions.paginate page: params[:page],
+                        per_page: Settings.page_size
   end
 
   def new
