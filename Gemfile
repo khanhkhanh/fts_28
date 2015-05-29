@@ -15,6 +15,7 @@ gem 'jbuilder'
 gem 'devise'
 gem 'cancancan'
 gem 'ransack'
+gem 'whenever', require: false
 gem 'rails_config'
 
 group :development do

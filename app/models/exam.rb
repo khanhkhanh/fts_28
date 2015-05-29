@@ -11,6 +11,7 @@ class Exam < ActiveRecord::Base
                                           reject_if: :all_blank
 
   scope :order_by_created_at, -> {order created_at: :DESC}
+  scope :inactive_exams, ->time {where("done = 'f' AND created_at < '#{time.ago.to_s(:db)}'")}
 
   private
   def make_random_questions
@@ -28,5 +29,9 @@ class Exam < ActiveRecord::Base
 
   def is_done?
     self.done?
+  end
+
+  def self.delete_inactive_exams
+    inactive_exams(Settings.expired_time.seconds).each {|exam| exam.destroy}
   end
 end
