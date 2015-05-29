@@ -1,5 +1,11 @@
 <h1><%= t :exam %></h1>
 <br>
+
+<div id="clockcontainer">
+  <h3><%= t :time_left %></h3>
+  <div id="countdown"></div>
+</div>
+
 <%= form_for @exam do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <%= f.hidden_field :done, value: true %>
@@ -9,7 +15,7 @@
   <% end %>
   
   <div class="row">
-    <%= f.submit t(:submit), class: "btn btn-primary", data: {confirm: t(:confirm_notification)} %>
+    <%= f.submit t(:submit), class: "btn btn-primary", id: "submit_button", data: {confirm: t(:confirm_notification)} %>
   </div>
 
   <br><br><br><br><br><br>
