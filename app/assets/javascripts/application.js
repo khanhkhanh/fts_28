@@ -15,3 +15,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('#countdown').timeTo(15, function()
+  {
+    $("#submit_button").data("confirm", "");
+    alert("Time out :D\nYou have just finished your exam!");
+    $("#submit_button").click();
+  });
+});

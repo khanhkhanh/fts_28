@@ -69,3 +69,4 @@ en:
   result: "Result: "
   correct_answer: "Correct answer?"
   permission: "You don't have permission to access that resource!!"
+  time_left: "Time left"
