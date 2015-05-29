@@ -2,8 +2,10 @@ class ExamsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @exams = current_user.exams.order_by_created_at.paginate page: params[:page], per_page: Settings.exam_page_size
+    @exams = current_user.exams.order_by_created
+              .paginate page: params[:page], per_page: Settings.exam_page_size
     @exam = Exam.new
+    @categories = Category.all
   end
 
   def show
